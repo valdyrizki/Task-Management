@@ -90,7 +90,7 @@
                                 </div>
                             </form>
                         @elseif ($task->status == 2)
-                            <a href="/task/revisi/{{$task->id}}"><button type="button" class="btn btn-danger col-md-4">Revisi</button></a>
+                            <button type="button" class="btn btn-danger col-md-4"><a href="/task/revisi/{{$task->id}}">Revisi</a></button>
 
                         @else
                             <form action="/task/upload" method="POST" enctype="multipart/form-data">
