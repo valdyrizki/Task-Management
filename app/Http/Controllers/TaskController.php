@@ -16,13 +16,12 @@ class TaskController extends Controller
         $task->description = $req->description;
         $task->priority = $req->priority;
         $task->save();
-
         return redirect('/');
 
     }
 
     public function index(){
-        $tasks = Task::orderBy('id', 'DESC')->get();;
+        $tasks = Task::orderBy('id', 'DESC')->get();
         return view('home',compact('tasks'));
     }
 

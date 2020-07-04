@@ -16,7 +16,7 @@
       <div class="container">
         <h1>Task Management</h1>
 
-        <form method="POST" action="/task/save">
+      <form method="POST" action="task/save">
             @csrf
             <div class="form-row">
                 <div class="form-group col-md-10">
@@ -43,7 +43,7 @@
             <h2 class=" mt-5">Task List</h2>
 
             <table class="table text-center">
-                <th>No</th>
+                <th>Id</th>
                 <th>Task Name</th>
                 <th>Priority</th>
                 <th>Description</th>
@@ -81,7 +81,7 @@
                     <td class="h4">{{$task->description}}</td>
                     <td>
                         @if  ($task->status == 1)
-                            <form action="/task/download" method="GET">
+                            <form action="task/download" method="GET">
                                 <div class="form-row">
                                     @csrf
                                     <input type="hidden" name="id" value="{{$task->id}}" />
@@ -90,14 +90,14 @@
                                 </div>
                             </form>
                         @elseif ($task->status == 2)
-                            <button type="button" class="btn btn-danger col-md-4"><a href="/task/revisi/{{$task->id}}">Revisi</a></button>
+                        <a href="/task/revisi/{{$task->id}}"><button type="button" class="btn btn-danger col-md-8">Revisi</button></a>
 
                         @else
-                            <form action="/task/upload" method="POST" enctype="multipart/form-data">
-                                <div class="form-row">
+                            <form action="task/upload" method="POST" enctype="multipart/form-data">
+                                <div class="form-row col-md-12">
                                     @csrf
                                     <input type="hidden" name="id" value="{{$task->id}}" />
-                                    <input type="file" name="file_upload" class="form-control col-md-4 " />
+                                    <input type="file" name="file_upload" class="form-control col-md-6 mr-2 " />
                                     <button type="submit" class="btn btn-dark col-md-4">Submit</button>
                                 </div>
                             </form>
