@@ -19,8 +19,14 @@ Route::post('task/save', 'TaskController@store');
 
 Route::post('task/upload','TaskController@upload');
 
-Route::get('task/download','TaskController@getfile');
+Route::get('task/download/{id}','TaskController@getfile');
 
 Route::get('task/done/{id}','TaskController@taskdone');
 
 Route::get('task/revisi/{id}','TaskController@taskrevisi');
+
+Route::get('task/delete/{id}','TaskController@taskdelete');
+
+Route::get('task/tasksdone','TaskController@showTasksDone');
+
+Route::get('task/tasksdeleted','TaskController@showTasksDeleted');
